@@ -17,4 +17,3 @@ db.connect()
   .then(() => console.log("Connected to PostgreSQL 🔥"))
   .catch(err => console.log("DB Connection Failed ❌", err));
 
-  export { db };
