@@ -3,11 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const db = new pg.Client({
-  host: process.env.PGHOST,
-  user: process.env.PGUSER,
-  database: process.env.PGDATABASE,
-  password: process.env.PGPASSWORD,
-  port: process.env.PGPORT,
+  connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   }
@@ -16,4 +12,3 @@ export const db = new pg.Client({
 db.connect()
   .then(() => console.log("Connected to PostgreSQL 🔥"))
   .catch(err => console.log("DB Connection Failed ❌", err));
-
